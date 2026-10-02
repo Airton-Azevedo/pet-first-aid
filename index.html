@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">PetSocorro — Primeiros Socorros para Cães e Gatos</title>
+  <meta name="description" data-i18n-content="meta.description" content="Guia prático e gratuito de primeiros socorros para cães e gatos." />
+  <meta name="author" content="PetSocorro" />
+  <meta property="og:title" content="PetSocorro — First Aid for Dogs and Cats" />
+  <meta property="og:description" content="First aid guide for dogs and cats." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" />
+</head>
+<body>
+
+  <!-- Barra de aviso -->
+  <div class="topbar" data-i18n-html="topbar">
+    ⚠️ Este site é um guia informativo. Em qualquer emergência, procure um <strong>médico-veterinário</strong> imediatamente.
+  </div>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="logo">🐾</span>
+        Pet<span class="accent">Socorro</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#emergencias" data-i18n="nav.emergencies">Emergências</a>
+        <a href="#guias" data-i18n="nav.guides">Guias</a>
+        <a href="#toxicos" data-i18n="nav.toxics">Alimentos Tóxicos</a>
+        <a href="#kit" data-i18n="nav.kit">Kit</a>
+        <a href="#contatos" data-i18n="nav.contacts">Contatos</a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+          <button type="button" data-lang="pt" class="lang-btn active">PT</button>
+          <button type="button" data-lang="en" class="lang-btn">EN</button>
+          <button type="button" data-lang="es" class="lang-btn">ES</button>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="badge"><span class="dot"></span> <span data-i18n="hero.badge">Guia gratuito e sempre disponível</span></span>
+          <h1 data-i18n-html="hero.title">Primeiros socorros que podem <span class="hl">salvar a vida</span> do seu pet</h1>
+          <p class="lead" data-i18n-html="hero.lead">
+            Cães e gatos sofrem acidentes — e os minutos antes de chegar ao veterinário fazem toda a
+            diferença. Aprenda o que fazer (e o que <strong>nunca</strong> fazer) em engasgos, sangramentos,
+            intoxicações, queimaduras e outras emergências.
+          </p>
+          <div class="hero-actions">
+            <a href="#emergencias" class="btn btn-primary" data-i18n="hero.btn1">🚑 Ver emergências</a>
+            <a href="#kit" class="btn btn-ghost" data-i18n="hero.btn2">🧰 Montar meu kit</a>
+          </div>
+          <div class="hero-stats" id="heroStats"></div>
+        </div>
+        <div class="hero-media">
+          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=900&q=80"
+               alt="Um cão e um gato juntos" loading="eager" />
+          <div class="hero-float f1">
+            <span class="ico">🩺</span>
+            <div><span data-i18n="hero.float1.t">Passo a passo</span><small data-i18n="hero.float1.s">Instruções claras</small></div>
+          </div>
+          <div class="hero-float f2">
+            <span class="ico">⏱️</span>
+            <div><span data-i18n="hero.float2.t">Rápido de usar</span><small data-i18n="hero.float2.s">Em segundos</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergências -->
+    <section id="emergencias" class="bg-soft">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="emergencies.eyebrow">Comece aqui</p>
+          <h2 data-i18n="emergencies.title">Qual é a emergência?</h2>
+          <p data-i18n="emergencies.subtitle">Toque no problema para ver o passo a passo. Use a busca para encontrar rapidamente.</p>
+        </div>
+
+        <div class="search-wrap reveal">
+          <span class="search-ico">🔍</span>
+          <input type="text" id="searchInput" data-i18n-placeholder="emergencies.search" placeholder="Buscar emergência (ex.: engasgo, sangramento, veneno...)" aria-label="Buscar emergência" />
+        </div>
+
+        <div class="emergency-grid" id="emergencyGrid"></div>
+        <p class="no-results" id="noResults" data-i18n="emergencies.noResults">Nenhuma emergência encontrada. Tente outro termo. 🐶</p>
+      </div>
+    </section>
+
+    <!-- Guias passo a passo -->
+    <section id="guias">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="guides.eyebrow">Passo a passo</p>
+          <h2 data-i18n="guides.title">Guias de primeiros socorros</h2>
+          <p data-i18n="guides.subtitle">Instruções práticas para agir com segurança até chegar ao veterinário.</p>
+        </div>
+
+        <div class="guides" id="guides"></div>
+      </div>
+    </section>
+
+    <!-- Alimentos tóxicos -->
+    <section id="toxicos" class="bg-teal">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="toxics.eyebrow">Atenção</p>
+          <h2 data-i18n="toxics.title">Alimentos e produtos tóxicos</h2>
+          <p data-i18n="toxics.subtitle">Mantenha estes itens longe do alcance de cães e gatos. Em caso de ingestão, procure o veterinário.</p>
+        </div>
+        <div class="toxic-grid" id="toxicGrid"></div>
+      </div>
+    </section>
+
+    <!-- Kit -->
+    <section id="kit" class="bg-soft">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="kit.eyebrow">Prevenção</p>
+          <h2 data-i18n="kit.title">Monte o kit de primeiros socorros</h2>
+          <p data-i18n="kit.subtitle">Tenha tudo em uma bolsa de fácil acesso. Em uma emergência, você não vai querer procurar.</p>
+        </div>
+        <div class="kit-grid">
+          <ul class="kit-list reveal" id="kitList"></ul>
+          <div class="kit-media reveal">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=80"
+                 alt="Veterinária cuidando de um cão" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contatos -->
+    <section id="contatos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="contacts.eyebrow">Esteja preparado</p>
+          <h2 data-i18n="contacts.title">Contatos de emergência</h2>
+          <p data-i18n="contacts.subtitle">Anote e deixe sempre à mão os números essenciais da sua região.</p>
+        </div>
+        <div class="contacts-grid" id="contactsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Aviso legal -->
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="disclaimer reveal">
+          <span class="d-ico">⚠️</span>
+          <div>
+            <h3 data-i18n="disclaimer.title">Aviso importante</h3>
+            <p data-i18n-html="disclaimer.text">
+              Este site tem caráter <strong>informativo e educativo</strong> e <strong>não substitui</strong>
+              a avaliação de um médico-veterinário.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand"><span class="logo">🐾</span> Pet<span class="accent">Socorro</span></div>
+          <p data-i18n="footer.desc">Um guia aberto e gratuito de primeiros socorros para cães e gatos.</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.navTitle">Navegação</h4>
+          <ul>
+            <li><a href="#emergencias" data-i18n="nav.emergencies">Emergências</a></li>
+            <li><a href="#guias" data-i18n="nav.guides">Guias</a></li>
+            <li><a href="#toxicos" data-i18n="nav.toxics">Alimentos tóxicos</a></li>
+            <li><a href="#kit" data-i18n="nav.kit">Kit de primeiros socorros</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.emergencyTitle">Emergência</h4>
+          <ul id="footerEmergencyLinks"></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> <span data-i18n="footer.bottom1">PetSocorro. Projeto de código aberto.</span></span>
+        <span data-i18n="footer.bottom2">Feito com 💚 para quem ama animais.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Voltar ao topo">↑</button>
+
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
