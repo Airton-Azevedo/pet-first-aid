@@ -57,7 +57,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-body);
   color: var(--slate-800);
-  background: var(--white);
+  background: #08131f;
   line-height: 1.65;
   font-size: 16px;
   overflow-x: hidden;
@@ -70,7 +70,20 @@ ul { list-style: none; }
 
 h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--slate-900); }
 
-.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 22px; }
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 22px;
+}
+
+main {
+  background: #f7f7f7;
+  width: min(1280px, calc(100% - 20px));
+  margin: 24px auto 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 50px rgba(6, 13, 22, 0.26);
+}
 
 /* ---------- Barra de aviso no topo ---------- */
 .topbar {
@@ -88,7 +101,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--s
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, .85);
+  background: rgba(255, 255, 255, .9);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--slate-200);
 }
@@ -185,12 +198,10 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--s
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: 70px 0 80px;
-  background:
-    radial-gradient(1100px 500px at 85% -10%, var(--teal-100), transparent 60%),
-    radial-gradient(800px 400px at 0% 110%, var(--coral-100), transparent 55%),
-    var(--white);
+  padding: 48px 0 52px;
+  background: linear-gradient(180deg, #f8fbfb 0%, #f3f5f5 100%);
   overflow: hidden;
+  border-bottom: 1px solid rgba(15,23,42,.06);
 }
 .hero-grid {
   display: grid;
@@ -202,7 +213,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--s
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--white);
+  background: rgba(255,255,255,0.75);
   border: 1px solid var(--slate-200);
   color: var(--teal-700);
   font-size: .82rem;
@@ -215,7 +226,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--s
 .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral-500); animation: pulse 1.8s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
 
-.hero h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 700; letter-spacing: -.02em; }
+.hero h1 { font-size: clamp(2rem, 4.5vw, 3.35rem); font-weight: 700; letter-spacing: -.02em; }
 .hero h1 .hl { color: var(--teal-600); }
 .hero p.lead { margin-top: 20px; font-size: 1.1rem; color: var(--slate-600); max-width: 540px; }
 .hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
@@ -231,15 +242,15 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--s
 
 .hero-media { position: relative; }
 .hero-media img {
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  aspect-ratio: 4/5;
+  border-radius: 26px;
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.12);
+  aspect-ratio: 4/3.25;
   object-fit: cover;
   width: 100%;
 }
 .hero-float {
   position: absolute;
-  background: var(--white);
+  background: rgba(255,255,255,0.93);
   border-radius: var(--radius);
   padding: 14px 18px;
   box-shadow: var(--shadow-lg);
@@ -251,8 +262,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--s
   color: var(--slate-700);
 }
 .hero-float .ico { font-size: 1.5rem; }
-.hero-float.f1 { top: 26px; left: -22px; }
-.hero-float.f2 { bottom: 30px; right: -18px; }
+.hero-float.f1 { top: 26px; left: -18px; }
+.hero-float.f2 { bottom: 24px; right: -18px; }
 .hero-float small { display: block; font-weight: 400; color: var(--slate-500); font-size: .75rem; }
 
 /* ---------- Seções ---------- */
